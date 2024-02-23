@@ -1,7 +1,16 @@
-import {ref} from 'vue'
+<template>
+    <div>
+        <h1>Welcome to my Piano App (click the keys)</h1>
+        <h2>hi</h2>
+    </div>
+</template>
 
-<template></template>
+<script>
+    export default {
+        
+    }
+</script>
 
-<script></script>
+<style lang="scss" scoped>
 
-<style></style>
+</style>
