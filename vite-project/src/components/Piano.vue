@@ -14,7 +14,7 @@
     <button @click="reset" class="reset">Reset Sequence!</button>
     <div class="chord">
     <p v-if="Chord.length === 0">No notes played</p>
-    <p v-else>Sequence: {{ Chord.join(', ') }}</p>
+    <p v-else>Sequence {{ Chord.length }}: {{ Chord.join(', ') }}</p>
   </div>
 </template>
 
