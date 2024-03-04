@@ -67,7 +67,11 @@ export default {
         console.error(Error `loading sound for note ${note}:, error`);
       }
     },
-
+    playSound(src) {
+      const audio = new Audio(src);
+      audio.play();
+    },
+    
     replayChord() {
       this.Chord.forEach((note) => {
         this.playSound(`/public/notes/${note}.ogg`);
@@ -82,10 +86,6 @@ export default {
       });
     },
 
-    playSound(src) {
-      const audio = new Audio(src);
-      audio.play();
-    },
 
     reset() {
       this.Chord = []
