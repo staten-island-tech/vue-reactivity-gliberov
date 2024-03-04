@@ -82,6 +82,11 @@ export default {
       });
     },
 
+    playSound(src) {
+      const audio = new Audio(src);
+      audio.play();
+    },
+
     reset() {
       this.Chord = []
     },
