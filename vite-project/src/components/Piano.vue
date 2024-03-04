@@ -81,7 +81,7 @@ export default {
     replayMelodic() {
       this.Chord.forEach((note, index) => {
         setTimeout(() => {
-          this.playSound(`/public/notes/${note}.ogg)`)
+          this.playSound(`/public/notes/${note}.ogg`)
         }, index * 500)
       });
     },
