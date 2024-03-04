@@ -17,6 +17,7 @@
 import Replay from "./Replay.vue"
 import ChordDisplay from "./Chord.vue"
 
+
 export default {
   name: "Piano",
   components: {
@@ -56,25 +57,28 @@ export default {
     };
   },
   methods: {
-    playNote(note) {
-      const audio = new Audio(`/public/notes/${note}.ogg`)
-      audio.play()
-      this.Chord.push(note)
+    async playNote(note) {
+      try {
+        const { default: sound } = await import(`../../public/notes/${note}.ogg`);
+        const audio = new Audio(sound);
+        audio.play();
+        this.Chord.push(note);
+      } catch (error) {
+        console.error(Error `loading sound for note ${note}:, error`);
+      }
     },
 
     replayChord() {
       this.Chord.forEach((note) => {
-        const audio = new Audio(`/public/notes/${note}.ogg`)
-        audio.play()
-      })
+        this.playSound(`/public/notes/${note}.ogg`);
+      });
     },
 
     replayMelodic() {
       this.Chord.forEach((note, index) => {
         setTimeout(() => {
-          const audio = new Audio(`/public/notes/${note}.ogg`)
-          audio.play()
-        }, index * 500)
+          this.playSound(`/public/notes/${note}.ogg)`);
+        }, index * 500);
       });
     },
 
