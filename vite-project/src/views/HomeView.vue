@@ -1,19 +1,35 @@
 <template>
-    <div>
-        <h1>Welcome to my Piano App (click the keys)</h1>
-        <h2>EAR WARNING: YOU MIGHT NOT WANT TO PRESS CHORD WITH TOO MANY NOTES </h2>
-        <Piano />
+    <h1>Welcome To Gabe's Piano App</h1>
+    <h2>The CSS is soooo good right?</h2>
+    <h3>Warning: If you are not a musician I advise you not to press play chord with a bunch of notes at once. Please don't sue me if you need hearing aids.</h3>
+    <div class="home-view">
+      <Piano @reset="reset" />
     </div>
-</template>
+  </template>
+  
+  <script>
+  import Piano from '../components/Piano.vue';
+  
+  export default {
+    components: {
+      Piano
+    },
+    methods: {
+      reset() {
+      }
+    }
+  }
+  </script>
+  
+  <style scoped>
+  .home-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-<script>
-import Piano from '@/components/Piano.vue';
-
-    export default {
-    components: { Piano }
-}
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+  .piano-key {
+    display: inline-block;
+  }
+  </style>
