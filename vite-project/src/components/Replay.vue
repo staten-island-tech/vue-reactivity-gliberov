@@ -10,15 +10,15 @@
   export default {
     methods: {
       replayChord() {
-        this.$emit("replay-chord");
+        this.$emit("replay-chord")
       },
   
       replayMelodic() {
-        this.$emit("replay-melodic");
+        this.$emit("replay-melodic")
       },
   
       reset() {
-        this.$emit("reset-sequence");
+        this.$emit("reset-sequence")
       }
     }
   };

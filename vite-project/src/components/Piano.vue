@@ -59,30 +59,30 @@ export default {
   methods: {
     async playNote(note) {
       try {
-        const { default: sound } = await import(`../../public/notes/${note}.ogg`);
-        const audio = new Audio(sound);
-        audio.play();
-        this.Chord.push(note);
+        const { default: sound } = await import(`../../public/notes/${note}.ogg`)
+        const audio = new Audio(sound)
+        audio.play()
+        this.Chord.push(note)
       } catch (error) {
-        console.error(Error `loading sound for note ${note}:, error`);
+        console.error(Error `loading sound for note ${note}:, error`)
       }
     },
     playSound(src) {
-      const audio = new Audio(src);
-      audio.play();
+      const audio = new Audio(src)
+      audio.play()
     },
     
     replayChord() {
       this.Chord.forEach((note) => {
-        this.playSound(`/public/notes/${note}.ogg`);
-      });
+        this.playSound(`/public/notes/${note}.ogg`)
+      })
     },
 
     replayMelodic() {
       this.Chord.forEach((note, index) => {
         setTimeout(() => {
-          this.playSound(`/public/notes/${note}.ogg)`);
-        }, index * 500);
+          this.playSound(`/public/notes/${note}.ogg)`)
+        }, index * 500)
       });
     },
 
